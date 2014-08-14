@@ -1,7 +1,7 @@
 (function(){
 	var $raRead,
 		$raInsert,
-		$btn,
+		$raBtn,
 		$raAttributes,
 		$HTMLContainer,
 		arrayAttr;
@@ -21,16 +21,16 @@
 
 	function isEmpty(){
 		if ($raAttributes.val() && $raRead.val()) {
-			$btn.removeAttr('disabled');
+			$raBtn.removeAttr('disabled');
 		} else {
-			$btn.attr('disabled', true);
+			$raBtn.attr('disabled', true);
 		}
 	}
 
 	$(function(){
 		$raRead = $('.ra-read');
 		$raInsert = $('.ra-insert');
-		$btn = $('.btn');
+		$raBtn = $('.ra-btn');
 		$raAttributes = $('.ra-attributes');
 
 		if ($.cookie('attributes')) {
@@ -41,6 +41,6 @@
 
 		isEmpty();
 
-		$btn.on('click', removeHTMLAttr);
+		$raBtn.on('click', removeHTMLAttr);
 	});
 })();
