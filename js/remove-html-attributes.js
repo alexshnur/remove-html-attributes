@@ -8,6 +8,7 @@
 
 	function removeHTMLAttr() {
 		arrayAttr = $raAttributes.val().split(',');
+		$.cookie('attributes', $raAttributes.val());
 		$HTMLContainer = $('<div/>').html($raRead.val());
 		$HTMLContainer.find('*').each(function(){
 			var $this = $(this);
@@ -32,6 +33,9 @@
 		$btn = $('.btn');
 		$raAttributes = $('.ra-attributes');
 
+		if ($.cookie('attributes')) {
+			$raAttributes.val($.cookie('attributes'));
+		}
 		$raRead.on('input propertychange', isEmpty);
 		$raAttributes.on('input propertychange', isEmpty);
 
